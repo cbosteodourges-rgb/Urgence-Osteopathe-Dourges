@@ -23,18 +23,28 @@
       --accent: #c29e6c;
     }
 
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Roboto, sans-serif;
-      color: var(--text);
-      background: url('fond-vase.png') no-repeat center center fixed;
-      background-size: 100%;
-      background-position: 100% 70%;
-      background-color: #f7f3ee;
-      line-height: 1.6;
-      text-align: center;
-      overflow-x: hidden;
-    }
+   body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: url('fond-vase.png') no-repeat center center;
+  background-size: cover; /* ✅ S’adapte à tous les écrans */
+  background-attachment: fixed; /* ✅ Effet de fond fixe sur PC */
+  background-color: #f7f3ee;
+  line-height: 1.6;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* ✅ Correction spécifique pour les smartphones */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll; /* Sur mobile, évite le bug de zoom du fond */
+    background-size: cover; /* Le fond remplit toujours l’écran */
+    background-position: center top;
+  }
+}
+
 
     /* 🔒 Fenêtre de mot de passe */
     #login {
@@ -283,4 +293,5 @@
 
 </body>
 </html>
+
 
